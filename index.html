@@ -5,12 +5,49 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
 
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
-	<!-- JS -->		
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Bootstrap JS -->		
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+	<!-- MDB CSS -->
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
+
+	<!-- MDB JS -->
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
+
+	<style type="text/css">
+		.input-group {
+			max-width: 100%;
+			display: inline-block;
+		}
+		.trigger {
+			padding: 1px 10px;
+			font-size: 12px;
+			font-weight: 400;
+			border-radius: 10px;
+			background-color: ;
+			color: #212121;
+			display: inline-block;
+			margin: 2px 5px;
+		}
+	</style>
 
 	<script type="text/javascript">
 		
@@ -18,36 +55,31 @@
 
 </head>
 <body>
-	<!-- 상단 네비게이션 바 -->
-	<nav class="navbar navbar-light bg-light">
-		<span class="navbar-brand mb-0 h1" style="margin-left: 10px;">포도알람</span>
-<!-- 		<form class="form-inline">
-			<span class="navbar">
-				<span class="nav-item">
-					<a class="nav-link text-secondary" href="#">피드<span class="sr-only">(current)</span></a>
-				</span>
-				<span class="nav-item">
-					<a class="nav-link text-secondary" href="#">키워드 등록</a>
-				</span>
-			</span>
-		</form> -->
+	<!-- 상단 헤더 -->
+	<nav class="navbar navbar-expand navbar-dark deep-purple">
+		<span class="navbar-brand">포도알람</span>
+		<div class="collapse navbar-collapse" id="navbarText" role="navigation">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="#my-keyword">내 키워드
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#my-dashboard">대시보드</a>
+				</li>
+			</ul>
+		</div>
 	</nav>
 
-	<!-- 키워드 입력창 -->
-	<!-- <div class="input-group my-3">
-		<form class="form-inline" style="width: 100%; margin: 5px;">
-			<input class="form-control mr-2" type="text" placeholder="키워드를 입력하세요" style="max-width: 80%;">
-			<button class="btn btn-info my-2 my-sm-0" type="submit" style="max-width= 20%;">추가</button>
-		</form>
-	</div> -->
+	<!-- 키워드 영역 -->	
 
-	<!-- 입력한 키워드 리스트 -->	
-	<div class="card-header">내 키워드</div>
+	<div class="card-header" id="my-keyword">내 키워드</div>
 	<ul class="list-group list-group-flush">
 		<div class="input-group">
 			<form class="form-inline" style="width: 100%; margin: 5px;">
-				<input class="form-control mr-2" type="text" placeholder="키워드를 입력하세요" style="max-width: 80%;">
-				<button class="btn btn-info" type="submit" style="max-width= 20%;">추가</button>
+				<input class="form-control" type="text" placeholder="키워드를 입력하세요" style="max-width: 75%">
+				<button class="btn btn-sm btn-secondary" type="submit" style="max-width: 25%, padding:0">추가</button>
 			</form>
 		</div>
 		<li class="list-group-item">
@@ -64,8 +96,8 @@
 		</li>
 	</ul><br>
 
-	<!-- 피드 -->
-	<div class="card-header">실시간</div>
+	<!-- 실시간 대시보드 영역 -->	
+	<div class="card-header" id="my-dashboard">실시간</div>
 	<div class="list-group list-group-flush">
 		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
 			<div class="d-flex w-100 justify-content-between">
@@ -92,7 +124,5 @@
 			<small class="text-muted">Donec id elit non mi porta.</small>
 		</a>
 	</div>
-
-
 </body>
 </html>
