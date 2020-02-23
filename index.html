@@ -50,7 +50,21 @@
 	</style>
 
 	<script type="text/javascript">
-		
+		$(document).ready(function() {
+			$('li.nav-item').click(function () {
+				$('li.nav-item').removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+
+		function add() {
+			let new_kw = $('#keyword-new').val();
+			let temp_html = '<li class="list-group-item">'+new_kw+'\
+				<span class="badge badge-secondary badge-pill" id="delete-btn">삭제</span>\
+				</li>';
+			$('#keyword-list').append(temp_html);
+			$('#keyword-new').val('');
+		}
 	</script>
 
 </head>
@@ -59,70 +73,78 @@
 	<nav class="navbar navbar-expand navbar-dark deep-purple">
 		<span class="navbar-brand">포도알람</span>
 		<div class="collapse navbar-collapse" id="navbarText" role="navigation">
-			<ul class="navbar-nav ml-auto">
+			<ul class="nav navbar-nav ml-auto" id="tab-list" role="tablist">
 				<li class="nav-item active">
-					<a class="nav-link" href="#my-keyword">내 키워드
-						<span class="sr-only">(current)</span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#my-dashboard">대시보드</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+					<a class="nav-link active" id="keyword-tab" data-toggle="tab" href="#keyword" role="tab" aria-controls="keyword"
+					aria-selected="true">키워드</i>
+					<span class="sr-only">(current)</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="dashboard-tab" data-toggle="tab" href="#dashboard" role="tab" aria-controls="dashboard"
+				aria-selected="false">실시간</i></a>
+			</li>
+		</ul>
+	</div>
+</nav>
 
+<div class="tab-content" id="tab-content">
 	<!-- 키워드 영역 -->	
-
-	<div class="card-header" id="my-keyword">내 키워드</div>
-	<ul class="list-group list-group-flush">
-		<div class="input-group">
-			<form class="form-inline" style="width: 100%; margin: 5px;">
-				<input class="form-control" type="text" placeholder="키워드를 입력하세요" style="max-width: 75%">
-				<button class="btn btn-sm btn-secondary" type="submit" style="max-width: 25%, padding:0">추가</button>
-			</form>
-		</div>
-		<li class="list-group-item">
-			아이다 양도
-			<span class="badge badge-secondary badge-pill">삭제</span>
-		</li>
-		<li class="list-group-item">
-			서울콘 양도
-			<span class="badge badge-secondary badge-pill">삭제</span>
-		</li>
-		<li class="list-group-item">
-			양도
-			<span class="badge badge-secondary badge-pill">삭제</span>
-		</li>
-	</ul><br>
+	<div class="tab-pane fade show active" id="keyword" role="tabpanel" aria-labelledby="keyword-tab">
+		<div class="card-header deep-purple lighten-3">내 키워드 관리</div>
+		<ul class="list-group list-group-flush">
+			<div class="input-group">
+				<form class="form-inline" style="width: 100%; margin: 5px;">
+					<input class="form-control" type="text" id="keyword-new" placeholder="키워드를 입력하세요" style="max-width: 75%">
+					<button onclick="add()" class="btn btn-sm btn-secondary" type="submit" style="max-width: 25%, padding:0">추가</button>
+				</form>
+			</div>
+			<div id="keyword-list">
+				<li class="list-group-item">
+					아이다 양도
+					<span class="badge badge-secondary badge-pill" id="delete-btn">삭제</span>
+				</li>
+				<li class="list-group-item">
+					서울콘 양도
+					<span class="badge badge-secondary badge-pill" id="delete-btn">삭제</span>
+				</li>
+				<li class="list-group-item">
+					양도
+					<span class="badge badge-secondary badge-pill" id="delete-btn">삭제</span>
+				</li>
+			</div>
+		</ul><br>
+	</div>
 
 	<!-- 실시간 대시보드 영역 -->	
-	<div class="card-header" id="my-dashboard">실시간</div>
-	<div class="list-group list-group-flush">
-		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-			<div class="d-flex w-100 justify-content-between">
-				<h5 class="mb-1">List group item heading</h5>
-				<small>3 days ago</small>
-			</div>
-			<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			<small>Donec id elit non mi porta.</small>
-		</a>
-		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-			<div class="d-flex w-100 justify-content-between">
-				<h5 class="mb-1">List group item heading</h5>
-				<small class="text-muted">3 days ago</small>
-			</div>
-			<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			<small class="text-muted">Donec id elit non mi porta.</small>
-		</a>
-		<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-			<div class="d-flex w-100 justify-content-between">
-				<h5 class="mb-1">List group item heading</h5>
-				<small class="text-muted">3 days ago</small>
-			</div>
-			<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-			<small class="text-muted">Donec id elit non mi porta.</small>
-		</a>
+	<div class="tab-pane fade" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+		<div class="card-header deep-purple lighten-3">실시간 대시보드</div>
+		<div class="list-group list-group-flush">
+			<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">List group item heading</h5>
+					<small>3 days ago</small>
+				</div>
+				<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				<small>Donec id elit non mi porta.</small>
+			</a>
+			<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">List group item heading</h5>
+					<small class="text-muted">3 days ago</small>
+				</div>
+				<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				<small class="text-muted">Donec id elit non mi porta.</small>
+			</a>
+			<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">List group item heading</h5>
+					<small class="text-muted">3 days ago</small>
+				</div>
+				<p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				<small class="text-muted">Donec id elit non mi porta.</small>
+			</a>
+		</div>
 	</div>
 </body>
 </html>
